@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/cartoon-style-programmer-working_52683-22715.jpg?w=740&t=st=1684480963~exp=1684481563~hmac=5e07a601419861eac2f06598566967f1d421f4a8fdac3bd42e4ad00226a17ed5");
+            background-size: cover;
+            background-position: 10px -422px;
+
+            overflow: hidden;
+        }
+
+        h1 {
+            color: rgb(232, 14, 159);
+            font-family: 'BhuTuka Expanded One', cursive;
+            font-size: 20px;
+            text-align: center;
+            position: relative;
+
+            top: 194px;
+            left: -405px;
+        }
+
+        .btn {
+            width: 200px;
+            font-size: 30px;
+            border-radius: 50%;
+            background-color: aqua;
+            color: blueviolet;
+            padding: 10px;
+            position: relative;
+            top: 330px;
+            left: 198px;
+        }
+
+        .main {
+            display: flex;
+            text-align: center;
+        }
+
+        input {
+            display: block;
+            margin: 20px;
+            color: black;
+            text-align: center;
+            background-color: aqua;
+            width: 50px;
+            height: 50px
+        }
+
+        label {
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <input type="text" readonly="">
+            <label for="">Days</label>
+        </div>
+
+        <div>
+            <input type="text" readonly="">
+            <label for="">Hours</label>
+        </div>
+
+        <div>
+            <input type="text" readonly="">
+            <label for="">Minutes</label>
+        </div>
+
+        <div>
+            <input type="text" readonly="">
+            <label for="">Seconds</label>
+        </div>
+
+
+
+
+    </div>
+    <div id="end_date"
+        style="position: relative;top:40px;color:white;  font-family: 'BhuTuka Expanded One', cursive;margin-left:9px">
+    </div>
+    <div class="container">
+        <h1>
+            <b>The coding challenge 2023 is here!<br>
+                This is a good opportunity for the programmer to win exclusive prizes.<br>
+                Then what are you waiting for!!
+                Go and register ----->
+        </h1>
+        <button class="btn">Register</button>
+    </div>
+
+
+    <script>
+        const enddate = " Last date for registration : 12 june 2023 11:59 PM"
+        document.getElementById("end_date").innerText = enddate;
+        const inputs = document.querySelectorAll("input");
+        function clock() {
+            const end = new Date(enddate);
+            const now = new Date();
+            const diff = (end - now) / 1000;
+            inputs[0].value = Math.floor(diff / 3600 / 24);
+            inputs[1].value = Math.floor(diff / 3600) % 24;
+            inputs[2].value = Math.floor(diff / 60) % 60;
+            inputs[3].value = Math.floor(diff % 60);
+
+        }
+        //init call:-
+        clock();
+
+        setInterval(
+            () => {
+                clock()
+            },
+            1000
+        )
+    </script>
+
+
+</body>
+
+</html>
